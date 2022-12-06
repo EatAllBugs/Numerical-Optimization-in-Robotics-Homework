@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<launch>
+
+   <node name="rviz" pkg="rviz" type="rviz" output="screen"
+    args="-d $(find topp)/config/topp.rviz"> 
+  </node>
+  
+  <node name="pos_vel_plot" pkg="rqt_plot" type="rqt_plot" 
+    args="/vel_0 /vel_1 /vel_2">
+  </node>
+
+  <node name="pos_vel_plot1" pkg="rqt_plot" type="rqt_plot" 
+    args="/acc_0 /acc_1 /acc_2">
+  </node>
+
+    <!-- <node name="pos_vel_plot" pkg="rqt_plot" type="rqt_plot" 
+    args="/visualizer/tilt_angle /visualizer/pitch_angle /visualizer/roll_angle">
+  </node> -->
+<!-- 
+      <node name="pos_vel_plot" pkg="rqt_plot" type="rqt_plot" 
+    args=" /visualizer/pitch_angle   /visualizer/total_thrust ">
+  </node>
+
+        <node name="pos_vel_plot1" pkg="rqt_plot" type="rqt_plot" 
+    args="  /visualizer/speed ">
+  </node>
+
+          <node name="pos_vel_plot2" pkg="rqt_plot" type="rqt_plot" 
+    args="  /visualizer/safe_flag">
+  </node> -->
+
+  <!-- <node pkg="mockamap" type="mockamap_node" name="mockamap_node" output="screen">
+  <param name="seed" type="int" value="1024"/>
+  <param name="update_freq" type="double" value="1.0"/>
+  <param name="resolution" type="double" value="0.25"/>
+  <param name="x_length" type="int" value="50"/>
+  <param name="y_length" type="int" value="50"/>
+  <param name="z_length" type="int" value="5"/>
+  <param name="type" type="int" value="1"/>
+  <param name="complexity"    type="double" value="0.025"/>
+  <param name="fill"          type="double" value="0.1"/>
+  <param name="fractal"       type="int"    value="1"/>
+  <param name="attenuation"   type="double" value="0.1"/>
+  <remap from="/mock_map" to="/voxel_map"/>
+  </node> -->
+  
+  <node pkg="topp" type="cubic_test" name="cubic_test" output="screen">
+  <!-- <rosparam file="$(find gcopter)/config/global_planning.yaml" command="load" /> -->
+  </node>
+
+</launch>
